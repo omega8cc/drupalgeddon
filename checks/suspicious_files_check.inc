@@ -52,11 +52,20 @@ function suspicious_files_check_query() {
  */
 function _suspicious_files_whitelist() {
   $tree_list_url = 'https://github.com/drupal/drupal/tree-list/4786cb98b9db1b0727a441c4aa7b6d47670f1afe';
+
+  $extra_whitelist = array(
+    'modules/help/help.api.php', // A file removed with Drupal 7.29
+  );
   if ($response = drupal_http_request($tree_list_url)) {
     if ($json = json_decode($response->data)) {
       foreach ($json->paths as $path) {
         $paths[] = realpath(DRUPAL_ROOT . '/' . $path);
       }
+
+      foreach ($extra_whitelist as $path) {
+        $paths[] = realpath(DRUPAL_ROOT . '/' . $path);
+      }
+
       return $paths;
     }
   }
