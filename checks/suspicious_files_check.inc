@@ -35,7 +35,9 @@ function suspicious_files_check_query() {
     if (is_array($known_files) && !in_array($file, $known_files)) {
       // Don't report on files in sites/* tree ... will trigger too
       // many false positives.
-      if (stristr($file, '/sites/') === FALSE && stristr($file, '/data/all/') === FALSE && stristr($file, '/data/disk/all/') === FALSE && stristr($file, '/drushrc.php') === FALSE) {
+      if (stristr($file, '/sites/') === FALSE && stristr($file, '/data/all/') === FALSE &&
+          stristr($file, '/data/disk/all/') === FALSE && stristr($file, '/drushrc.php') === FALSE &&
+          stristr($file, '/modules/help/help.api.php') === FALSE) {
         $return[] = $file;
       }
     }
