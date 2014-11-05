@@ -37,7 +37,7 @@ function suspicious_files_check_query() {
       // many false positives.
       if (stristr($file, '/sites/') === FALSE && stristr($file, '/data/all/') === FALSE &&
           stristr($file, '/data/disk/all/') === FALSE && stristr($file, '/drushrc.php') === FALSE &&
-          stristr($file, '/modules/help/help.api.php') === FALSE) {
+          stristr($file, '/modules/help/help.api.php') === FALSE && stristr($file, '/FirePHPCore/') === FALSE) {
         $return[] = $file;
       }
     }
