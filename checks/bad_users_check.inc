@@ -20,6 +20,7 @@ function bad_users_check() {
 }
 
 function bad_users_check_query() {
+  // Check against a list of reported users.
   $users = array(
     'configure',
     'drplsys',
@@ -34,5 +35,13 @@ function bad_users_check_query() {
   while ($user = $result->fetchObject()) {
     $ret_val[$user->uid] = $user->name;
   }
-  return $ret_val;
+  // Check for users created 44 years 10 months ago (actually created date is zero).
+  $result_old = db_query('SELECT uid, name, created FROM {users} WHERE created = 0');
+  $ret_val_old = array();
+  foreach ($result_old as $user) {
+    if ($user->uid != 0) {
+      $ret_val_old[$user->uid] = $user->name;
+    }
+  }
+  return ($ret_val + $ret_val_old);
 }
