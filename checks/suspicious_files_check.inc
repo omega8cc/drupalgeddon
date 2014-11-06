@@ -58,6 +58,7 @@ function _suspicious_files_whitelist() {
 
   $extra_whitelist = array(
     'modules/help/help.api.php', // A file removed with Drupal 7.29
+    'themes/tests/test_theme/template.php', // Legacy test_theme
   );
   if ($response = drupal_http_request($tree_list_url)) {
     if ($json = json_decode($response->data)) {
