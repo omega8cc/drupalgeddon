@@ -38,6 +38,7 @@ function suspicious_files_check_query() {
       if (stristr($file, '/sites/') === FALSE && stristr($file, '/data/all/') === FALSE && stristr($file, '/js.php') === FALSE &&
           stristr($file, '/data/disk/all/') === FALSE && stristr($file, '/rtoc.php') === FALSE && stristr($file, '/drushrc.php') === FALSE &&
           stristr($file, '/modules/o_contrib_seven/') === FALSE && stristr($file, '/local.settings.php') === FALSE &&
+          stristr($file, '/themes/tao/') === FALSE && stristr($file, '/themes/rubik/') === FALSE &&
           stristr($file, '/modules/help/help.api.php') === FALSE && stristr($file, '/FirePHPCore/') === FALSE) {
         $return[] = $file;
       }
