@@ -74,11 +74,11 @@ function suspicious_files_check_query() {
  */
 function _suspicious_files_whitelist() {
   // Use correct hash for latest core (note: tree hash, not commit hash) from:
-  // http://cgit.drupalcode.org/drupal/commit/?id=4ba5f184c69306da0e30260890f01ea0694af274
+  // http://cgit.drupalcode.org/drupal/commit/?id=81586d9e9d04dcee487c50de426c04221899b6d0
   $tree_list_hash = array(
     '7.32' => '4786cb98b9db1b0727a441c4aa7b6d47670f1afe',
     '7.33' => 'a27ea4ac2112bc9c70e5cf989b87b545ef501813',
-    '7.34' => 'f46e2445757354aca51c46fe94e8b66fde943ecc',
+    '7.34' => '949ef1174475fd3cb5c951fcc8b2b05c0dd16faa',
   );
   $tree_list_url = 'https://github.com/drupal/drupal/tree-list/';
 
