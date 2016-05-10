@@ -66,7 +66,7 @@ function drush_drupalgeddon() {
   }
 
   if (!empty($results)) {
-    drush_log('Site tested positive for known Drupalgeddon exploit checks', 'error');
+    drush_log('Site tested positive for the following security and exploit checks:');
     foreach ($results as $result) {
       drush_log($result, 'error');
     }
